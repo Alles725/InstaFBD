@@ -1,6 +1,7 @@
 -- ####################################################################
 -- # Script de Visão e Consultas (SQL) para o Banco de Dados Instagram
 -- # Disciplina: Fundamentos de Bancos de Dados
+-- # Alunos: Guilherme Cirumbolo e Pedro Alles
 -- ####################################################################
 
 

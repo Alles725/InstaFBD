@@ -1,6 +1,7 @@
 -- ####################################################################
 -- # Script de Inserção de Dados (DML) para o Banco de Dados Instagram
 -- # Disciplina: Fundamentos de Bancos de Dados
+-- # Alunos: Guilherme Cirumbolo e Pedro Alles
 -- ####################################################################
 
 -- A ordem das inserções respeita as dependências de chaves estrangeiras.

@@ -1,6 +1,7 @@
 -- ####################################################################
 -- # Script de Criação de Tabelas (DDL) para o Banco de Dados Instagram
 -- # Disciplina: Fundamentos de Bancos de Dados
+-- # Alunos: Guilherme Cirumbolo e Pedro Alles
 -- ####################################################################
 
 -- A ordem de criação respeita as dependências de chaves estrangeiras.
