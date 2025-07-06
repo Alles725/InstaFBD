@@ -10,11 +10,12 @@ import psycopg2
 import sys
 
 # --- CONFIGURAÇÃO DA CONEXÃO COM O BANCO DE DADOS ---
-# Substitua com os seus dados de conexão local do PostgreSQL
+#  comando docker para criacao de imagem:
+# docker run --name postgres-db -v postgres-db:/var/lib/postgresql/data -e POSTGRES_PASSWORD=fundamentos -e POSTGRES_USER=postgres -e POSTGRES_DB=postgres -p 5432:5432 -d postgres:latest
 DB_CONFIG = {
-    "dbname": "seu_banco_de_dados",
-    "user": "seu_usuario",
-    "password": "sua_senha",
+    "dbname": "postgres",
+    "user": "postgres",
+    "password": "fundamentos",
     "host": "localhost",
     "port": "5432"
 }
@@ -38,13 +39,6 @@ QUERIES = {
 # 1. ESTABELECENDO A CONEXÃO COM O BANCO DE DADOS
 # ====================================================================
 def conectar_banco(config):
-    """
-    Usa a biblioteca psycopg2 para estabelecer a conexão com o banco.
-    Os parâmetros de conexão são passados através de um dicionário.
-    O operador '**' desempacota o dicionário em argumentos nomeados
-    para a função psycopg2.connect().
-    Inclui tratamento de erros para falhas comuns de conexão.
-    """
     conn = None
     try:
         print("A conectar-se à base de dados PostgreSQL...")
@@ -59,17 +53,6 @@ def conectar_banco(config):
 # 2. PREPARANDO E ENVIANDO CONSULTAS (COM E SEM PARÂMETROS)
 # ====================================================================
 def executar_consulta(conn, sql, params=None, fetch=True):
-    """
-    Função central para interagir com o banco de dados.
-    - conn: O objeto de conexão ativo.
-    - sql: A string do comando SQL a ser executado.
-    - params: Uma tupla opcional com os parâmetros para a consulta.
-              Usar parâmetros desta forma é a prática recomendada pelo
-              psycopg2 para evitar ataques de SQL Injection. A biblioteca
-              cuida de "sanitizar" os valores.
-    - fetch: Um booleano que indica se devemos buscar resultados (SELECT)
-             ou não (INSERT, UPDATE, DELETE).
-    """
     try:
         # O 'with conn.cursor()' garante que o cursor seja fechado
         # automaticamente no final do bloco, liberando recursos.
